@@ -3,6 +3,7 @@ package com.bskyb.tag2poc;
 import com.bskyb.platform_config.commons.Territory;
 import com.bskyb.platform_config.commons.TestEnv;
 import com.bskyb.tag.MovieTao;
+import com.bskyb.tag.OttPayload;
 import com.bskyb.tag.Tag;
 import com.bskyb.tag.datatypes.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ System.out.println("movieTao.getOttTitlePayLoad = " + movieTao.getOttDeletePayLo
 
         payloadRepository.save(new OttPayloadEntity(movieTao.getContentID(), movieTao.getOttDeletePayLoad()));
 //        payloadRepository.save(new OttPayloadEntity(movieTao.getContentID(), "ottpayload"));
+
+//        OttPayload ottPayload = payloadRepository.find(OttPayload.class, movieTao.getContentID());
+//        UserInfo userInfo =  ottPayload.getUserInfo();
         return true;
 //        return (movieTao.publish_asset());
     }
