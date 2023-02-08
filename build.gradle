@@ -26,11 +26,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'com.bskyb.automation:platform-integration-commons:1.2.2test3'
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.vladmihalcea', name: 'hibernate-types-52', version: '2.2.2'
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-guava', version: '2.1.2'
-
+    implementation 'com.bskyb.automation:platform-integration-commons:1.2.2test13'
+//    implementation group: 'com.bskyb.automation', name: 'platform-config', version: '2.3.39test3'
 }
 
 tasks.named('test') {
