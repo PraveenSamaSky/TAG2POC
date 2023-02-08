@@ -29,6 +29,14 @@ public class MovieController {
             @RequestBody CustomMovieValues customMovieValues) throws Exception {
 
         return new ResponseEntity<>(movieService.publishMovie(headers, customMovieValues), HttpStatus.OK);
-
     }
+
+//    @PutMapping(path = "/api/assets/movie/update/{contentId}")
+//    public ResponseEntity<Boolean> publishMovie(
+//            @PathVariable String contentId,
+//            @RequestHeader HashMap<String, String> headers,
+//            @RequestBody CustomMovieValues movieUpdateValues) throws Exception {
+//
+//        return new ResponseEntity<>(movieService.updateMovie(headers, customMovieValues), HttpStatus.OK);
+//    }
 }
