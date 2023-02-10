@@ -32,9 +32,6 @@ public class MovieTaoEntity implements Serializable {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private Movie movie;
+    private Object asset;
 
-//    public OttPayload getOttPayload() throws IOException {
-//        return new ObjectMapper().readValue((DataInput) ott_Payload, OttPayload.class);
-//    }
 }
