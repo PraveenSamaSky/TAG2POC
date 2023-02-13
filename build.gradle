@@ -29,7 +29,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.vladmihalcea', name: 'hibernate-types-52', version: '2.2.2'
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-guava', version: '2.1.2'
-    implementation 'com.bskyb.automation:platform-integration-commons:1.2.2test13'
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.14.2'
+    implementation 'com.bskyb.automation:platform-integration-commons:1.2.2test34'
 //    implementation group: 'com.bskyb.automation', name: 'platform-config', version: '2.3.39test3'
 }
 

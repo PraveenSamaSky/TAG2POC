@@ -48,27 +48,29 @@ public class MovieService {
 //                                                        .collect(Collectors.toList());
 //        payloadRepository.save(new OttPayloadEntity(movieTao.getContentID(), updatedOttPayload));
 
-        movieTaoRepository.save(new MovieTaoEntity(movieTao.getContentID(), movieTao.getMovie()));
+        movieTaoRepository.save(new MovieTaoEntity(movieTao.getContentID(), movieTao));
 
         return movieTao.getContentID();
     }
 
-    public Movie updateMovie(String contentId, HashMap<String, String> headers, CustomMovieValues movieUpdateValues) throws Exception {
+    public MovieTao updateMovie(String contentId, HashMap<String, String> headers, CustomMovieValues movieUpdateValues) throws Exception {
 
 //        Movie movie = movieTaoRepository.findById(contentId)
 //                .orElseThrow(() -> new NoSuchElementException("Employee not found for this id :: " + contentId))
 //                .getMovie();
         if(movieTaoRepository.existsById(contentId)) {
             System.out.println("record exists with contentId " + contentId);
-                ObjectMapper objectMapper = new ObjectMapper();
-                Movie movie = objectMapper.convertValue(movieTaoRepository.findById(contentId).get().getAsset(), Movie.class);
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.findAndRegisterModules();
 
-                movie.getLocalizableInformation().stream().map(l -> {
+            MovieTao movieTao = objectMapper.convertValue(movieTaoRepository.findById(contentId).get().getAsset(), MovieTao.class);
+
+                movieTao.getMovie().getLocalizableInformation().stream().map(l -> {
                             l.setTitle(movieUpdateValues.getMovieTitle());
                             return l;
                         })
                         .collect(Collectors.toList());
-            return objectMapper.convertValue(movieTaoRepository.save(new MovieTaoEntity(contentId, movie)).getAsset(), Movie.class);
+            return objectMapper.convertValue(movieTaoRepository.save(new MovieTaoEntity(contentId, movieTao)).getAsset(), MovieTao.class);
         } else {
             return null;
         }
