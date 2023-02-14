@@ -1,8 +1,5 @@
 package com.bskyb.tag2poc;
 
-import com.bskyb.tag.MovieTao;
-import com.bskyb.tag.OttPayload;
-import com.bskyb.tag.ddi.models.Movie;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,6 +29,6 @@ public class MovieTaoEntity implements Serializable {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private Object asset;
+    private Object assetTao;
 
 }

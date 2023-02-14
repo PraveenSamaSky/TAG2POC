@@ -25,7 +25,7 @@ public class MovieController {
     }
 
     @PostMapping("/api/assets/movie/publish")
-    public ResponseEntity<String> publishMovie(
+    public ResponseEntity<MovieTao> publishMovie(
             @RequestHeader HashMap<String, String> headers,
             @RequestBody CustomMovieValues customMovieValues) throws Exception {
 
